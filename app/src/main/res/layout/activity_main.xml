@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@android:color/black">
+
+    <Button
+        android:id="@+id/btStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Новая игра"
+        android:textSize="25dp"
+        android:textColor="@android:color/darker_gray"
+        android:background="@android:color/black"
+        android:textStyle="italic"
+
+        ></Button>
+    <Button
+        android:id="@+id/btDevelop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Разработчики"
+        android:textSize="20dp"
+        android:textColor="@android:color/darker_gray"
+        android:background="@android:color/black"
+        android:textStyle="italic"
+        ></Button>
+    <Button
+        android:id="@+id/btExit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Выйти"
+        android:textSize="15dp"
+        android:textColor="@android:color/darker_gray"
+        android:background="@android:color/black"
+        android:textStyle="italic"
+        ></Button>
+
+</LinearLayout>
