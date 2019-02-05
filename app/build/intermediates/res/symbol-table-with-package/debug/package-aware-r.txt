@@ -803,7 +803,10 @@ id top
 id topPanel
 id tv_field_text
 id tv_hp
+id tv_mob_hp
+id tv_mob_name
 id tv_player_name
+id tv_stage
 id uniform
 id up
 id useLogo

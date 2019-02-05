@@ -6,10 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -61,7 +59,7 @@ public class GameActivity extends AppCompatActivity {
                 if (player.getHp() <= 0) {Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent); }
                 if (NPCs.get(stage).getHp() <= 0 ) {NPCGone();
-                    newLewel();}
+                    newLevel();}
                 hpplayer.setText(String.valueOf(player.getHp()));
                 lowerpicture.setText(replix[stage][r.nextInt(6)]);
 
@@ -76,11 +74,10 @@ public class GameActivity extends AppCompatActivity {
                 NPCs.get(stage - 1).setHp(NPCs.get(stage - 1).getHp() - player.getSuperattack());
                 player.setSuperpossibility(0);
             }
-                if (player.getHp() <= 0) {Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent); }
+                if (player.getHp() <= 0) {death(); }
                 player.setHp(player.getHp() - (NPCs.get(stage).getAttack() - player.getDefence()));
                 if (NPCs.get(stage).getHp() <= 0 ) {NPCGone();
-                newLewel();
+                newLevel();
                 }
                 hpplayer.setText(String.valueOf(player.getHp()));
                 lowerpicture.setText(replix[stage][r.nextInt(6)]);
@@ -98,7 +95,7 @@ public class GameActivity extends AppCompatActivity {
                     startActivity(intent); }
                 player.setHp(player.getHp() - (NPCs.get(stage).getAttack() - player.getDefence()));
                 if (NPCs.get(stage).getHp() <= 0 ) {NPCGone();
-                    newLewel();
+                    newLevel();
                 }
                 hpplayer.setText(String.valueOf(player.getHp()));
                 lowerpicture.setText(replix[stage][r.nextInt(6)]);
@@ -143,21 +140,26 @@ public class GameActivity extends AppCompatActivity {
     }
     public void NPCGone() {
         stage++;
-        if (stage > NPCs.size()) {
-            Intent intent = new Intent(GameActivity.this, Developers.class );
-            startActivity(intent);
-            finish();
-        }
+        if (stage > NPCs.size()) toResult();
         newNPC();
     }
-    public void  newLewel(){
+
+    public void newLevel(){
         player.setAttack(player.getAttack() + 100);
         player.setDefence(player.getDefence() + 10);
         player.setSuperattack(player.getSuperattack() + 50);
-        player.setHeal(player.getHeal() + 50);}
-
-
-
-
+        player.setHeal(player.getHeal() + 50);
     }
+
+    public void toResult() {
+            Intent intent = new Intent(GameActivity.this, Developers.class );
+            startActivity(intent);
+            finish();
+    }
+
+    public void death() {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
+}
 
