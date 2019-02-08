@@ -19,6 +19,8 @@
     <activity android:name=".GameActivity"></activity>
         <activity android:name=".Developers"></activity>
         <activity android:name=".Name_Field"></activity>
+        <activity android:name=".Username"></activity>
+        <activity android:name=".Finish_Win"></activity>
 
     </application>
 

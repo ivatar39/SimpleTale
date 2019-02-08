@@ -32,7 +32,7 @@ public class GameActivity extends AppCompatActivity {
             {"гав","ваг","авг","гва","агв","вга","Просто собака."}};
 
     ImageView enemypicture;
-    TextView lowerpicture, hpplayer, txtstage;
+    TextView lowerpicture, hpplayer, txtstage, txtplayername, enemyhp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,11 +96,15 @@ public class GameActivity extends AppCompatActivity {
 
 
     public void setup() {
+
         enemypicture = (ImageView) (findViewById(R.id.iv_image));
         lowerpicture = (TextView) (findViewById(R.id.tv_field_text));
         hpplayer = (TextView) (findViewById(R.id.tv_hp));
-        txtstage = (TextView) (findViewById(R.id.tv_stage));
+        txtstage = (TextView) (findViewById(R.id.tv_stage_num));
+        txtplayername = (TextView) (findViewById(R.id.tv_player_name));
+        enemyhp = (TextView) (findViewById(R.id.enemy_hp));
 
+        txtplayername.setText(String.valueOf( getIntent().getStringExtra("name")));
         player = new Player(10, 500, 30, 50, 0, 0, 150);
         stage = 0;
         fetchNPCs();
@@ -153,7 +157,8 @@ public class GameActivity extends AppCompatActivity {
 
 
     public void toResult() {
-            Intent intent = new Intent(GameActivity.this, Developers.class );
+        Toast.makeText(getApplicationContext(), "Победа!", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(GameActivity.this, Finish_Win.class );
             startActivity(intent);
             finish();
     }
@@ -200,8 +205,9 @@ public class GameActivity extends AppCompatActivity {
 
     public void update() {
         hpplayer.setText(String.valueOf(player.getHp()));
+        enemyhp.setText(String.valueOf(currentNPC.getHp()));
         lowerpicture.setText(replix[stage][r.nextInt(6)]);
-        txtstage.setText(String.valueOf(stage));
+        txtstage.setText(String.valueOf(stage + 1));
     }
 }
 

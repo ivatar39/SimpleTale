@@ -676,6 +676,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id again_bt
 id alertTitle
 id all
 id always
@@ -713,6 +714,8 @@ id direct
 id disableHome
 id edit_query
 id end
+id enemy_hp
+id exit_bt
 id expand_activities_button
 id expanded_menu
 id fill
@@ -803,10 +806,8 @@ id top
 id topPanel
 id tv_field_text
 id tv_hp
-id tv_mob_hp
-id tv_mob_name
 id tv_player_name
-id tv_stage
+id tv_stage_num
 id uniform
 id up
 id useLogo
@@ -849,6 +850,7 @@ layout abc_tooltip
 layout activity_field
 layout activity_main
 layout develop_field
+layout finish_win
 layout name_field
 layout notification_action
 layout notification_action_tombstone
